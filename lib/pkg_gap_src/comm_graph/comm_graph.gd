@@ -1,0 +1,2 @@
+DeclareGlobalFunction("HelloWorld1");
+
