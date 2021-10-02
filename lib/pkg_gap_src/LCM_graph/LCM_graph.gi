@@ -1,11 +1,3 @@
-InstallGlobalFunction(HelloWorld1, function()
-   Display("Hello World 1");
-end);
-
-InstallGlobalFunction(HelloWorld2, function()
-   Display("Hello World 2");
-end);
-
 InstallGlobalFunction(LCMGraph, function(group)
    local graph, lcm_graph,i,j, e1,e2, A_mx, g_order, lc_gen, elm_sum;
    # Generators of the LC group
@@ -36,7 +28,6 @@ InstallGlobalFunction(LCMGraph, function(group)
 
 	if elm_sum = g_order then
 	   Append(lc_gen, [e1]); 
-           Display(lc_gen);
         fi;
 
       od;   

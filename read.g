@@ -1,1 +1,1 @@
-ReadPackage("GGraph", "lib/GGraph.gi")
+ReadPackage("GGraph", "lib/GGraph.gi");
