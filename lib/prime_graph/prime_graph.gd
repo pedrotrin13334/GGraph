@@ -1,0 +1,3 @@
+DeclareGlobalFunction("PrimeGraph");
+DeclareGlobalFunction("ElemOrders");
+

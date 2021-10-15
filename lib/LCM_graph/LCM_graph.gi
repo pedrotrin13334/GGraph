@@ -1,5 +1,5 @@
 InstallGlobalFunction(LCMGraph, function(group)
-   local graph, lcm_graph,i,j, e1,e2, A_mx, g_order, lc_gen, elm_sum;
+   local graph, lcm_graph,i,j, e1,e2, A_mx, g_order, lc_gen, elm_sum, lcm_group;
    # Generators of the LC group
    lc_gen := [];
    # element sum of times it satisfies the LCM condition
@@ -31,10 +31,12 @@ InstallGlobalFunction(LCMGraph, function(group)
         fi;
 
       od;   
+
+      lcm_group := Group(lc_gen);
       graph := Graph(Group(()), [1..g_order], OnPoints, 
                     function(x,y) return A_mx[x][y]=1; end,
    			 true);
-      lcm_graph := rec(group:=group, graph := graph, LCMGroup := Group(lc_gen));
+      lcm_graph := rec(group:=group, graph := graph, lcmGroup := lcm_group);
    else 
       lcm_graph := 0; 
       Display("Input was not a group");
