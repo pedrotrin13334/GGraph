@@ -10,8 +10,7 @@ InstallGlobalFunction(PowerGraph, function(group)
       A_mx :=  IdentityMat(g_order);
       for e1 in Elements(group) do
          j:=1;
-         for e1 in Elements(group) do
-	    # TODO Finish This codition
+         for e2 in Elements(group) do
             # Tests POWER graph condition for edge connecting
             if (e1 in Elements(Group(e2))) then
                A_mx[i][j] := 1;
