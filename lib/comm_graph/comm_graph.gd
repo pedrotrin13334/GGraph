@@ -1,3 +1,6 @@
-DeclareGlobalFunction("HelloWorld1");
 DeclareGlobalFunction("CommGraph");
-
+DeclareGlobalFunction("CommDegree");
+DeclareGlobalFunction("MaxAbelianSubgroup");
+DeclareGlobalFunction("CommDegreeGroupFind");
+DeclareGlobalFunction("NilpotentCommDegreeGroupFind");
+DeclareGlobalFunction("PrimeCommDegreeGroupFind");
