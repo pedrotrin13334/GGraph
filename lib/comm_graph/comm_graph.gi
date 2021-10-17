@@ -58,10 +58,18 @@ InstallGlobalFunction(MaxAbelianSubgroup, function(comm_graph)
 ##  . . . . Finds the commutative Degree of a given group
 ## 
 InstallGlobalFunction(CommDegree, function (group)
-    local num_conj_classes;
-    num_conj_classes := Size(ConjugacyClasses(group));
-    return num_conj_classes/Order(group);
-     
+    local num_conj_classes, comm_deg, g, g_list; 
+    comm_deg := 1;
+    if IsAbelian(group)=true then 
+        comm_deg:= 1;  
+    else 
+        g_list := DirectFactorsOfGroup(group);
+        for g in g_list do
+            num_conj_classes := Size(ConjugacyClasses(g));
+            comm_deg := comm_deg*num_conj_classes/Order(g);
+        od; 
+    fi; 
+    return comm_deg;
     end 
 );
 
@@ -132,10 +140,36 @@ InstallGlobalFunction(PrimeCommDegreeGroupFind, function(prime)
 ##  . . . . Finds a Nilpotent Group with commutative degree LESS than 1/n
 ##
 InstallGlobalFunction(NilpotentCommDegreeGroupFind, function(num)
-    local max_clique;
-    #max_clique := MaximumClique(comm_graph.graph);
-    #return Group(comm_graph.graph.names{max_clique});
-    return 0;
+    local prime_factors, p, curr_group, g;
+    prime_factors := FactorsInt(num);
+    curr_group := Group(());
+    for p in prime_factors do 
+       g := NilpotentPrimeCommDegreeGroupFind(p);
+       curr_group := DirectProduct(curr_group, g); 
+    od; 
+    return curr_group;
+
+    end
+);
+
+#############################################################################
+##
+#G  NilpotentPrimeCommDegreeGroupFind( <number> ) . . . . . . . . . . . . . 
+##  . . . . Finds a Nilpotent Group with commutative degree LESS than 1/p, 
+##  p being a prime number
+##
+InstallGlobalFunction(NilpotentPrimeCommDegreeGroupFind, function(prime)
+    local curr_group, cond, g;
+    cond := x -> IsPGroup(x) and not IsAbelian(x);
+    curr_group := OneSmallGroup(8, cond);
+    g := OneSmallGroup(prime^3,cond);   
+    curr_group := DirectProduct(curr_group, g);
+    
+    while Order(DerivedSubgroup(curr_group)) = prime do
+        curr_group := DirectProduct(curr_group, OneSmallGroup(8, cond));
+    od; 
+    
+    return curr_group;
 
     end
 );
