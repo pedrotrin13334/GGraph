@@ -57,14 +57,20 @@ InstallGlobalFunction(LC, function(group)
     local lc_group, i, j, e; 
     lc_group :=[];;
     e:=Elements(group);;
-    for i in e do
-        if Order(i) <> Exponent(group) and 
-        ForAll(e, j-> IsInt(Lcm(Order(i),Order(j))/(Order(i*j))))=true
-        then
-            Add(lc_group, i);
-        fi;
-    od;
-    return Group(lc_group);
+    if Order(group) = 1 then
+        return e[1];
+    else 
+        for i in e do
+            if Order(i) <> Exponent(group) and 
+            ForAll([1..Order(i)], t->  
+            ForAll(e, j-> IsInt(Lcm(Order(i^t),Order(j))/(Order((i^t)*j))))) =true
+            then
+                Add(lc_group, i);
+            fi;
+        od;
+        return Group(lc_group);
+    fi;
+
     end
 );
 
@@ -74,7 +80,8 @@ InstallGlobalFunction(LCMSet, function(group)
     e:=Elements(group);;
     for i in e do
         if Order(i) <> Exponent(group) and 
-        ForAll(e, j-> IsInt(Lcm(Order(i),Order(j))/(Order(i*j))))=true
+        ForAll([1..Order(i)], t->  
+        ForAll(e, j-> IsInt(Lcm(Order(i^t),Order(j))/(Order((i^t)*j))))) =true
         then
             Add(lcm_set, i);
         fi;
@@ -91,3 +98,40 @@ InstallGlobalFunction(IsLCGroup, function(group, lc_group)
 
     end
 );
+
+#############################################################################
+##
+#F  LCMSeries( <group> ) . . . . . . . . . . . . . 
+##  . . . . Returns a list of LCi group in the LCMSeries for a given group G
+##
+InstallGlobalFunction(LCMSeries, function(group)
+    local lc_list, nat_hom, series_len, curr_lc, next_lc, g_lc; 
+    lc_list := [];
+    curr_lc := LC(group);
+    Append(lc_list, [curr_lc]);
+    next_lc := Group(());
+    series_len := 1;
+    
+    if curr_lc = group then
+       return lc_list;
+    fi;
+    
+    while curr_lc <> next_lc do
+        nat_hom := NaturalHomomorphismByNormalSubgroup(group, curr_lc);
+        Display(StructureDescription(curr_lc));
+        g_lc := LC(Image(nat_hom, group)); 
+        next_lc := PreImages(nat_hom, g_lc); 
+        series_len := series_len + 1;
+        Append(lc_list, [next_lc]);
+    od;  
+    
+    if next_lc <> group then 
+        Display("Group not LCM nilpotent");
+        return [];
+    else
+        return lc_list;
+    fi;
+
+    end
+);
+

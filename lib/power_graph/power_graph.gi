@@ -12,7 +12,8 @@ InstallGlobalFunction(PowerGraph, function(group)
          j:=1;
          for e2 in Elements(group) do
             # Tests POWER graph condition for edge connecting
-            if (e1 in Elements(Group(e2))) then
+            if (e1 in Elements(Group(e2))) or
+               (e2 in Elements(Group(e1))) then
                A_mx[i][j] := 1;
             else 
                A_mx[i][j] := 0;
