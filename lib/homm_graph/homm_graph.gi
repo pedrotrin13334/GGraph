@@ -1,4 +1,6 @@
-InstallGlobalFunction(HommGraph, function(group, f_func, h_func)
+## Optional Arguments:  Bin1 := binary operation for f, 
+## Bin2 := binary operation for h
+InstallGlobalFunction(HommGraph, function(group, f_func, h_func, opt...)
    local graph, homm_graph,i,j, e1,e2, A_mx, g_order, e1_f, e2_f,
          h1,h2,h3;
    if IsGroup(group)=true then 
@@ -16,12 +18,26 @@ InstallGlobalFunction(HommGraph, function(group, f_func, h_func)
 
             h1 := h_func(e1_f);
             h2 := h_func(e2_f);
-            h3 := h_func(e1_f*e2_f);
-            
-            if h3 = h1*h2 then
-               A_mx[i][j] := 1;
+            if IsRecord(opt[1]) then
+               h3 := h_func(opt[1].Bin1(e1_f,e2_f));
+
+               if (h3 = opt[1].Bin2(h1,h2))
+                  or (h3 = opt[1].Bin2(h2,h1)) then
+                  A_mx[i][j] := 1;
+                  A_mx[j][i] := 1;
+               else 
+                  A_mx[i][j] := 0;
+                  A_mx[j][i] := 0;
+               fi;
+
             else 
-               A_mx[i][j] := 0;
+               h3 := h_func(e1_f*e2_f);
+
+               if h3 = h1*h2 then
+                  A_mx[i][j] := 1;
+               else 
+                  A_mx[i][j] := 0;
+               fi;
             fi;
 
             # This condition guarantees no self loops
