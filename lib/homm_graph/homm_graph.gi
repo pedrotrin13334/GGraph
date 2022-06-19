@@ -18,7 +18,7 @@ InstallGlobalFunction(HommGraph, function(group, f_func, h_func, opt...)
 
             h1 := h_func(e1_f);
             h2 := h_func(e2_f);
-            if IsRecord(opt[1]) then
+            if not IsEmpty(opt) then
                h3 := h_func(opt[1].Bin1(e1_f,e2_f));
 
                if (h3 = opt[1].Bin2(h1,h2))
