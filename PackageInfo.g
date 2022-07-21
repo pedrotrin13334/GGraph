@@ -77,8 +77,7 @@ BannerString:= Concatenation(
 "\n \\ \\ \\/__/ \\ \\ \\/__/ \\    /  / \\/\\  /  / \\/\\  /  / \\/\\  /  / ",
 "\n  \\  /  /   \\  /  /   \\ \\/__/    / /  /     \\/__/    / /  / ",
 "\n   \\/__/     \\/__/     \\|__|     \\/__/               \\/__/ ", 
-"\n",
-"\n Graphs Defined on Groups Algorithms",
-"\n Author: Pedro Trindade", "\n\n"
+"\n Graphs defined on groups algorithms",
+"\n Author: Pedro Trindade and M. Laura da Silva", "\n\n"
 ) 
 ));
