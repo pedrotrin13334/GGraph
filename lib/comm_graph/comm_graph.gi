@@ -5,52 +5,52 @@ InstallGlobalFunction(CommGraph, function(group)
    if IsGroup(group)=true then 
       g_order := Order(group);
       i := 1;
-      j := 1;
-      # Adjacency Matrix 
-      A_mx :=  IdentityMat(g_order);
-      for e1 in Elements(group) do
-         j:=1;
-         for e2 in Elements(group) do
-            # Tests Commutative graph condition for edge connecting
-            if  e1*e2 = e2*e1 then
-               A_mx[i][j] := 1;
-            else 
-               A_mx[i][j] := 0;
-            fi;
-            # ignores self loops
-            if e1 = e2 then
-                A_mx[i][j] := 0;
-            fi; 
-            j:= j + 1;
-         od; 
+          j := 1;
+          # Adjacency Matrix 
+          A_mx :=  IdentityMat(g_order);
+          for e1 in Elements(group) do
+             j:=1;
+             for e2 in Elements(group) do
+                # Tests Commutative graph condition for edge connecting
+                if  e1*e2 = e2*e1 then
+                   A_mx[i][j] := 1;
+                else 
+                   A_mx[i][j] := 0;
+                fi;
+                # ignores self loops
+                if e1 = e2 then
+                    A_mx[i][j] := 0;
+                fi; 
+                j:= j + 1;
+             od; 
 
-         i:= i + 1;
+             i:= i + 1;
 
-      od;   
+          od;   
 
-      graph := Graph(Group(()), [1..g_order], OnPoints, 
-                    function(x,y) return A_mx[x][y]=1; end,
-   			 true);
-      AssignVertexNames(graph, Elements(group));
-      comm_graph := rec(group:=group, graph := graph);
-   else 
-      comm_graph := 0; 
-      Display("Input was not a group");
-   fi;
-	
-   return comm_graph;
-   
-   end
-);
+          graph := Graph(Group(()), [1..g_order], OnPoints, 
+                        function(x,y) return A_mx[x][y]=1; end,
+                 true);
+          AssignVertexNames(graph, Elements(group));
+          comm_graph := rec(group:=group, graph := graph);
+       else 
+          comm_graph := 0; 
+          Display("Input was not a group");
+       fi;
+        
+       return comm_graph;
+       
+       end
+    );
 
-InstallGlobalFunction(MaxAbelianSubgroup, function(comm_graph)
-    local max_clique;
-    max_clique := MaximumClique(comm_graph.graph);
-    return Group(comm_graph.graph.names{max_clique});
+    InstallGlobalFunction(MaxAbelianSubgroup, function(comm_graph)
+        local max_clique;
+        max_clique := MaximumClique(comm_graph.graph);
+        return Group(comm_graph.graph.names{max_clique});
 
-    end
+        end
 
-);
+    );
 
 #############################################################################
 ##
