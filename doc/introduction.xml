@@ -1,0 +1,27 @@
+<!-- %W  introduction.xml             GAP documentation               Pedro Trindade -->
+<!-- %W                                                      M. Laura da Silva -->
+<!-- %H                                                                        -->
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<Chapter Label="Introduction">
+<Heading>The Graph defined on Groups Package</Heading>
+
+<Index>The Graph defined on Groups Package</Index>
+The GGraph is a GAP; package dedicated to implement methods,
+functions and constructions for different types of Graphs defined
+on Groups.  
+<P/>
+To utilize the GGraph package, it's necessary to download it from the 
+main GGraph repository in github in the <A>.gap/pkg</A> directory, then type in
+the console: 
+<P/>
+<Example><![CDATA[
+gap> LoadPackage("GGraph");
+]]></Example>
+<P/>
+
+</Chapter>
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<!-- %% -->
+<!-- %E -->

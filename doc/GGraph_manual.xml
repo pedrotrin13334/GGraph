@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Book SYSTEM "gapdoc.dtd">
+
+<Book Name="GGraph">
+
+<TitlePage>
+  <Title>The <Package>GGraph</Package> Package</Title>
+  <Version>Version 0.0.0</Version>
+  <Author>Pedro H. A. Trindade
+    <Email>engpedrotrindade@gmail.com</Email>
+  </Author>
+
+  <!--<Copyright>Still no copyright <P/>
+  </Copyright>-->
+
+</TitlePage>
+
+<TableOfContents/>
+
+<Body>
+    <#Include SYSTEM "introduction.xml"> 
+</Body>
+
+<Bibliography Databases="GGraph" />
+<TheIndex/>
+
+</Book>
