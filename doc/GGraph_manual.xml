@@ -10,6 +10,9 @@
   <Author>Pedro H. A. Trindade
     <Email>engpedrotrindade@gmail.com</Email>
   </Author>
+  <Author>M. Laura da Silva
+    <Email>marylaura0205@gmail.com</Email>
+  </Author>
 
   <!--<Copyright>Still no copyright <P/>
   </Copyright>-->
@@ -20,6 +23,22 @@
 
 <Body>
     <#Include SYSTEM "introduction.xml"> 
+
+    <Chapter Label="CommutingGraph">
+    <Heading>The Commuting Graph</Heading>
+    <Index>The Commuting Graph</Index>
+        <Section>
+        <Heading>Main Functions</Heading>
+            <!--<#Include Label="CommGraph">-->
+            <#Include Label="CommDegree">
+            <#Include Label="MaxAbelianSubgroup">
+            <#Include Label="CommDegreeGroupFind">
+            <#Include Label="PrimeCommDegreeGroupFind">
+            <#Include Label="NilpotentCommDegreeGroupFind">
+            <#Include Label="NilpotentPrimeCommDegreeGroupFind">
+        </Section>
+    </Chapter> 
+
 </Body>
 
 <Bibliography Databases="GGraph" />

@@ -3,23 +3,28 @@
 <!-- %H                                                                        -->
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-<Chapter Label="Introduction">
+<Chapter Label="The Package">
 <Heading>The Graph defined on Groups Package</Heading>
 
+<Section Label= "Introduction">
+<Heading>Package Introduction</Heading>
+
 <Index>The Graph defined on Groups Package</Index>
-The GGraph is a GAP; package dedicated to implement methods,
-functions and constructions for different types of Graphs defined
-on Groups.  
+The GGraph is a &GAP; package dedicated to implement methods,
+functions and constructions for different types of graphs defined
+on groups.  
 <P/>
-To utilize the GGraph package, it's necessary to download it from the 
-main GGraph repository in github in the <A>.gap/pkg</A> directory, then type in
+To utilize the GGraph package, it is necessary to download it from the 
+main GGraph repository in github to the <A>.gap/pkg</A> directory, then type in
 the console: 
 <P/>
 <Example><![CDATA[
 gap> LoadPackage("GGraph");
 ]]></Example>
 <P/>
-
+If the GAP system outputs true, then everything went well and you can readily 
+utilize the GGraph methods, functions and variables.
+</Section>
 </Chapter>
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
