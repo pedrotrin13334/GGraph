@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE Book SYSTEM "gapdoc.dtd">
+<!DOCTYPE Book SYSTEM "gapdoc.dtd"
+[<!ENTITY GGraph "<Package>GGraph</Package>">
+ <!ENTITY Grape "<Package>Grape</Package>">
+]>
 
 <Book Name="GGraph">
 
@@ -29,7 +32,7 @@
     <Index>The Commuting Graph</Index>
         <Section>
         <Heading>Main Functions</Heading>
-            <!--<#Include Label="CommGraph">-->
+            <#Include Label="CommGraph">
             <#Include Label="CommDegree">
             <#Include Label="MaxAbelianSubgroup">
             <#Include Label="CommDegreeGroupFind">
@@ -39,6 +42,61 @@
         </Section>
     </Chapter> 
 
+    <Chapter Label="PowerGraph">
+    <Heading>The Power Graph</Heading>
+    <Index>The Power Graph</Index>
+        <Section>
+        <Heading>Main Functions</Heading>
+        </Section>
+    </Chapter> 
+
+    <Chapter Label="PrimeGraph">
+    <Heading>The Prime Graph</Heading>
+    <Index>The Prime Graph</Index>
+        <Section>
+        <Heading>Main Functions</Heading>
+        </Section>
+    </Chapter> 
+
+    <Chapter Label="IntersectGraph">
+    <Heading>The Intersection Graph</Heading>
+    <Index>The Intersection Graph</Index>
+        <Section>
+        <Heading>Main Functions</Heading>
+        </Section>
+    </Chapter> 
+
+    <Chapter Label="HommGraph">
+    <Heading>The Homomorphism Graph</Heading>
+    <Index>The Homomorphism Graph</Index>
+        <Section>
+        <Heading>Main Functions</Heading>
+        </Section>
+    </Chapter> 
+
+    <Chapter Label="GenGraph">
+    <Heading>The Generating Graph</Heading>
+    <Index>The Generating Graph</Index>
+        <Section>
+        <Heading>Main Functions</Heading>
+        </Section>
+    </Chapter> 
+
+    <Chapter Label="LCMGraph">
+    <Heading>The LCM Graph</Heading>
+    <Index>The LCM Graph</Index>
+        <Section>
+        <Heading>Main Functions</Heading>
+        </Section>
+    </Chapter> 
+
+    <Chapter Label="utils">
+    <Heading>Graph Utility Functions</Heading>
+    <Index>Graph Operations</Index>
+        <Section>
+        <Heading>Main Functions</Heading>
+        </Section>
+    </Chapter> 
 </Body>
 
 <Bibliography Databases="GGraph" />
