@@ -33,6 +33,7 @@
         <Section>
         <Heading>Main Functions</Heading>
             <#Include Label="CommGraph">
+            <#Include Label="DeepCommGraph">
             <#Include Label="CommDegree">
             <#Include Label="MaxAbelianSubgroup">
             <#Include Label="CommDegreeGroupFind">
@@ -63,6 +64,8 @@
     <Index>The Intersection Graph</Index>
         <Section>
         <Heading>Main Functions</Heading>
+            <#Include Label="GenGraph">
+            <#Include Label="NonGenGraph">
         </Section>
     </Chapter> 
 

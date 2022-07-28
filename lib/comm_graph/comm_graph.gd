@@ -9,8 +9,8 @@
 ##
 ##  <Description>
 ##  This function receives a <A>group</A> as an input then utilizes
-##  the grape package to implement a graph <Math>(V,E)</Math>
-##  applying the following rule:
+##  the <Package>Grape</Package> package to implement a graph
+##  <Math>(V,E)</Math> applying the following rule:
 ##  <P/> 
 ##  The vertices of this graph are the elements of the inputted group
 ##  <Math>G</Math> and two vertices are connected if the elements commute
@@ -18,6 +18,29 @@
 ##  </ManSection>
 ##  <#/GAPDoc>
 DeclareGlobalFunction("CommGraph");
+
+#############################################################################
+##
+#F  DeepCommGraph( <Group> ) . . . . . . . . . . . . . . . . . . . .  
+##  . . . . Implements the Deep Commutative Graph of a given group
+##
+##  <#GAPDoc Label="DeepCommGraph">
+##  <ManSection>
+##  <Func Name="DeepCommGraph" Arg="group"/>
+##
+##  <Description>
+##  This function receives a <A>group</A> as an input then utilizes
+##  the <Package>Grape</Package> package to implement 
+##  a graph <Math>(V,E)</Math> applying the following rule:
+##  <P/> 
+##  Two elements of <Math>G</Math> are joined in the deep commuting graph
+##  if and only if their preimages in every central extension of <Math>G</Math>
+##  (that is, every group <Math>H</Math> with a central subgroup 
+##  <Math>Z</Math> such that <Math>H/Z \cong G</Math>) commute.
+##  </Description>
+##  </ManSection>
+##  <#/GAPDoc>
+DeclareGlobalFunction("DeepCommGraph");
 
 #############################################################################
 ##

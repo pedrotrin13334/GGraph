@@ -51,6 +51,45 @@ InstallGlobalFunction(CommGraph, function(group)
 
 #############################################################################
 ##
+#F  DeepCommGraph( <Group> ) . . . . . . . . . . . . . . . . . . . .  
+##  . . . . Implements the Deep Commutative Graph of a given group
+## 
+InstallGlobalFunction(DeepCommGraph, function(group)
+   local graph, dcomm_graph, comm_graph, schurcov, 
+         z_group, epi, right_transv, vert_nums, num, name;
+
+   if IsGroup(group)=true then 
+        schurcov := SchurCover(group);
+        epi := EpimorphismSchurCover(group);
+        z_group :=  Kernel(epi);
+
+        right_transv := RightTransversal(schurcov, z_group);;
+        comm_graph := CommGraph(schurcov);; 
+
+        # Get numerical position of vertices between the names
+        vert_nums := [];
+        for name in Elements(right_transv) do
+            num := Position(VertexNames(comm_graph.graph), name);;
+            Add(vert_nums, num);;
+        od; 
+
+        graph:= InducedSubgraph(comm_graph.graph, vert_nums);
+
+        dcomm_graph := rec(group:=group, graph := graph);
+
+    else 
+        dcomm_graph := 0; 
+        Display("Input was not a group");
+        return fail; 
+    fi;
+    
+    return dcomm_graph;
+   
+    end
+);
+
+#############################################################################
+##
 #F  MaxAbelianSubgroup( <Group> ) . . . . . . . . . . . . . . . . . .  
 ##  . . . .  Finds a maximum abelian subgroup of a group G
 ##
