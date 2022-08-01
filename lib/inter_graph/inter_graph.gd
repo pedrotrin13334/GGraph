@@ -1,11 +1,11 @@
 #############################################################################
 ##
-#F  IntersectGraph( <Group> ) . . . . . . . . . . . . . . . . . .  
+#F  IntersectionGraph( <Group> ) . . . . . . . . . . . . . . . . . .  
 ##  . . . . Implements the Intersection Graph of a given group
 ##
-##  <#GAPDoc Label="IntersectGraph">
+##  <#GAPDoc Label="IntersectionGraph">
 ##  <ManSection>
-##  <Func Name="CommGraph" Arg="group"/>
+##  <Func Name="IntersectionGraph" Arg="group"/>
 ##
 ##  <Description>
 ##  This function receives a <A>group</A> as an input then utilizes
@@ -14,9 +14,9 @@
 ##  <P/> 
 ##  The vertices of this graph are the proper non-trivial subgroups
 ##  of the inputted group <Math>G</Math> 
-##  and two vertices <Math> H_1, H_2 </Math<are connected 
+##  and two vertices <Math> H_1, H_2 </Math> are connected 
 ##  if <Math>H_1 \cap H_2 \not = \{1\}</Math>.
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
-DeclareGlobalFunction("IntersectGraph");
+DeclareGlobalFunction("IntersectionGraph");

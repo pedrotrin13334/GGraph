@@ -6,7 +6,7 @@ main := "GGraph_manual.xml";;
 files := ["introduction.xml",
           "../lib/comm_graph/comm_graph.gd",
           "../lib/power_graph/power_graph.gd",
-          "../lib/intersect_graph/intersect_graph.gd",
+          "../lib/inter_graph/inter_graph.gd",
           "../lib/homm_graph/homm_graph.gd",
           "../lib/gen_graph/gen_graph.gd",
           "../lib/LCM_graph/LCM_graph.gd",

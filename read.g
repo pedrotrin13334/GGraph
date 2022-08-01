@@ -1,7 +1,7 @@
 #ReadPackage("GGraph", "lib/GGraph.gi");
 ReadPackage("GGraph", "lib//LCM_graph/LCM_graph.gi");
 ReadPackage("GGraph", "lib/comm_graph/comm_graph.gi");
-ReadPackage("GGraph", "lib/intersect_graph/intersect_graph.gi");
+ReadPackage("GGraph", "lib/inter_graph/inter_graph.gi");
 ReadPackage("GGraph", "lib/power_graph/power_graph.gi");
 ReadPackage("GGraph", "lib/gen_graph/gen_graph.gi");
 ReadPackage("GGraph", "lib/prime_graph/prime_graph.gi");

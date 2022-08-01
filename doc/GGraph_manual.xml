@@ -31,7 +31,7 @@
     <Heading>The Commuting Graph</Heading>
     <Index>The Commuting Graph</Index>
         <Section>
-        <Heading>Main Functions</Heading>
+        <Heading> CommGraph Main Functions</Heading>
             <#Include Label="CommGraph">
             <#Include Label="DeepCommGraph">
             <#Include Label="CommDegree">
@@ -47,7 +47,10 @@
     <Heading>The Power Graph</Heading>
     <Index>The Power Graph</Index>
         <Section>
-        <Heading>Main Functions</Heading>
+        <Heading>PowerGraph Main Functions</Heading>
+            <#Include Label="PowerGraph">
+            <#Include Label="EnhancedPowerGraph">
+            <#Include Label="MaxCyclicSubgroup">
         </Section>
     </Chapter> 
 
@@ -55,17 +58,18 @@
     <Heading>The Prime Graph</Heading>
     <Index>The Prime Graph</Index>
         <Section>
-        <Heading>Main Functions</Heading>
+        <Heading>PrimeGraph Main Functions</Heading>
+            <#Include Label="PrimeGraph">
+            <#Include Label="OrderPrimeGraph">
         </Section>
     </Chapter> 
 
-    <Chapter Label="IntersectGraph">
+    <Chapter Label="InterGraph">
     <Heading>The Intersection Graph</Heading>
     <Index>The Intersection Graph</Index>
         <Section>
-        <Heading>Main Functions</Heading>
-            <#Include Label="GenGraph">
-            <#Include Label="NonGenGraph">
+        <Heading>InterGraph Main Functions</Heading>
+            <#Include Label="IntersectionGraph">
         </Section>
     </Chapter> 
 
@@ -73,7 +77,8 @@
     <Heading>The Homomorphism Graph</Heading>
     <Index>The Homomorphism Graph</Index>
         <Section>
-        <Heading>Main Functions</Heading>
+        <Heading>HomGraph Main Functions</Heading>
+            <#Include Label="HommGraph">
         </Section>
     </Chapter> 
 
@@ -81,7 +86,9 @@
     <Heading>The Generating Graph</Heading>
     <Index>The Generating Graph</Index>
         <Section>
-        <Heading>Main Functions</Heading>
+            <#Include Label="GenGraph">
+            <#Include Label="NonGenGraph">
+        <Heading>GenGraph Main Functions</Heading>
         </Section>
     </Chapter> 
 
@@ -89,7 +96,12 @@
     <Heading>The LCM Graph</Heading>
     <Index>The LCM Graph</Index>
         <Section>
-        <Heading>Main Functions</Heading>
+        <Heading>LCMGraph Main Functions</Heading>
+            <#Include Label="LCMGraph">
+            <#Include Label="LC">
+            <#Include Label="LCMSet">
+            <#Include Label="IsLCGroup">
+            <#Include Label="IsLCGroup">
         </Section>
     </Chapter> 
 
@@ -97,7 +109,9 @@
     <Heading>Graph Utility Functions</Heading>
     <Index>Graph Operations</Index>
         <Section>
-        <Heading>Main Functions</Heading>
+        <Heading>Graph Operation List</Heading>
+            <#Include Label="LexBFS">
+            <#Include Label="IsChordalGraph">
         </Section>
     </Chapter> 
 </Body>

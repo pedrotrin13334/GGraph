@@ -1,9 +1,9 @@
 #############################################################################
 ##
-#F  IntersectGraph( <Group> ) . . . . . . . . . . . . . . . . . .  
+#F  IntersectionGraph( <Group> ) . . . . . . . . . . . . . . . . . .  
 ##  . . . . Implements the Intersection Graph of a given group
 ##
-InstallGlobalFunction(IntersectGraph, function(group)
+InstallGlobalFunction(IntersectionGraph, function(group)
 
    local graph, intersect_graph,i,j, h1,h2, A_mx,
          subgroup_list, sbgrp_num, set1, set2;

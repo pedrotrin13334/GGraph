@@ -14,7 +14,7 @@
 ##  <P/> 
 ##  The vertices of this graph are the elements of the inputted group
 ##  <Math>G</Math> and two vertices <Math>x,y \in G</Math> are connected
-##  if <Math><x,y> \cong G</Math>. 
+##  if <Math>x,y</Math> generates <Math> G</Math>. 
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
