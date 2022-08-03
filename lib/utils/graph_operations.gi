@@ -66,21 +66,32 @@ InstallGlobalFunction(LexBFS, function(graph)
 );
 
 InstallGlobalFunction(IsChordalGraph, function(graph)
-    local lex_order, vertex, new_graph;
+    local lex_order, vertex, vert_names,
+          pos_vert, new_graph, adj_graph;
+
     if IsGraph(graph) = false then
         return fail;
     elif Girth(graph) = -1 then
         return true;
     else 
-        lex_order:= LexBFS(graph);
-        Remove(lex_order,1);
+        lex_order := LexBFS(graph);
+        lex_order := Reversed(lex_order); 
+        #Remove(lex_order,1);
         new_graph := graph;
+        pos_vert := lex_order;
+ 
         while Size(lex_order)>2 do
-            new_graph := InducedSubgraph(graph, lex_order);
-            if IsCompleteGraph(new_graph)=false then
+            adj_graph := InducedSubgraph(new_graph,
+                             Adjacency(new_graph, pos_vert[1]));
+            if IsCompleteGraph(adj_graph)=false then
                 return false;
             fi;
-            Remove(lex_order,1);
+            # Make a new graph without vertex in order
+            Remove(lex_order,1); 
+            vert_names := List(lex_order, x->VertexName(graph,x));
+            pos_vert := List(vert_names, x-> 
+                            Position(VertexNames(new_graph), x)); 
+            new_graph := InducedSubgraph(new_graph, pos_vert); 
         od;
         return true;
     fi;
