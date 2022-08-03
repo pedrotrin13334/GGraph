@@ -237,6 +237,18 @@ InstallGlobalFunction(GraphStrongProduct, function(graph1, graph2)
 end
 );
 
+InstallGlobalFunction(TwinReduction, function(graph, twin_list)
+    local vertices, idx, new_graph;
+    vertices := Vertices(graph);
+    for idx in [1..Size(twin_list)] do
+        if idx>1 then
+            RemoveSet(vertices, twin_list[idx]);;
+        fi;
+    od;
+    new_graph := InducedSubgraph(graph, vertices);;
+    return new_graph;
+end);
+
 InstallGlobalFunction(GraphTwins, function(graph)
     local twins, v, x, adjx, adjv, new_twin;
     twins := [];;
@@ -266,19 +278,6 @@ InstallGlobalFunction(GraphTwins, function(graph)
 end);
 
 
-InstallGlobalFunction(TwinReduction, function(graph, twin_list)
-    local vertices, idx, new_graph;
-    vertices := Vertices(graph);
-    for idx in [1..Size(twin_list)] do
-        if idx>1 then
-            RemoveSet(vertices, twin_list[idx]);;
-        fi;
-    od;
-    new_graph := InducedSubgraph(graph, vertices);;
-    return new_graph;
-end);
-
-
 InstallGlobalFunction(IsTwinFree, function(graph)
     local twins;
     twins := GraphTwins(graph);
@@ -302,3 +301,4 @@ InstallGlobalFunction(CokernelGraph, function(graph)
     od;
     return new_graph;
 end);
+
