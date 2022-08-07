@@ -59,7 +59,7 @@ InstallGlobalFunction(HommGraph, function(group, f_func, h_func, opt...)
       homm_graph := rec(group:=group, graph := graph);
    else 
       homm_graph := 0; 
-      Display("Input was not a group");
+      Error("Input was not a group");
    fi;
 	
    return homm_graph;

@@ -110,8 +110,17 @@
     <Index>Graph Operations</Index>
         <Section>
         <Heading>Graph Operation List</Heading>
+            <#Include label="GraphFromAdjList"> 
             <#Include Label="LexBFS">
             <#Include Label="IsChordalGraph">
+            <Section>
+                <Heading> Graph Products </Heading> 
+                    <#Include Label="GraphProductGeneric">
+                    <#Include Label="GraphCartesianProduct">
+                    <#Include Label="GraphCategoricalProduct">
+                    <#Include Label="GraphLexProduct">
+                    <#Include Label="GraphStrongProduct">
+            </Section> 
         </Section>
     </Chapter> 
 </Body>

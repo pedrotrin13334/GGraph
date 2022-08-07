@@ -40,7 +40,7 @@ InstallGlobalFunction(CommGraph, function(group)
       comm_graph := rec(group:=group, graph := graph);
    else 
       comm_graph := 0; 
-      Display("Input was not a group");
+      Error("Input was not a group");
       return fail; 
    fi;
     
@@ -79,7 +79,7 @@ InstallGlobalFunction(DeepCommGraph, function(group)
 
     else 
         dcomm_graph := 0; 
-        Display("Input was not a group");
+        Error("Input was not a group");
         return fail; 
     fi;
     

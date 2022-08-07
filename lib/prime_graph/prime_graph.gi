@@ -48,7 +48,7 @@ InstallGlobalFunction(PrimeGraph, function(group)
       prime_graph := rec(group:=group, graph := graph);
    else 
       prime_graph := 0; 
-      Display("Input was not a group");
+      Error("Input was not a group");
    fi;
 	
    return prime_graph;
@@ -96,7 +96,7 @@ InstallGlobalFunction(OrderPrimeGraph, function(group)
       order_prime_graph := rec(group:=group, graph := graph);
    else 
       order_prime_graph := 0; 
-      Display("Input was not a group");
+      Error("Input was not a group");
    fi;
 	
    return order_prime_graph;

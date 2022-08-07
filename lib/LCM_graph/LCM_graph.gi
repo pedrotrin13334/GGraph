@@ -44,7 +44,7 @@ InstallGlobalFunction(LCMGraph, function(group)
       lcm_graph := rec(group:=group, graph := graph, lcGroup := lc_group);
    else 
       lcm_graph := 0; 
-      Display("Input was not a group");
+      Error("Input was not a group");
    fi;
 	
    return lcm_graph;
@@ -118,7 +118,6 @@ InstallGlobalFunction(LCMSeries, function(group)
     
     while curr_lc <> next_lc do
         nat_hom := NaturalHomomorphismByNormalSubgroup(group, curr_lc);
-        Display(StructureDescription(curr_lc));
         g_lc := LC(Image(nat_hom, group)); 
         next_lc := PreImages(nat_hom, g_lc); 
         series_len := series_len + 1;
@@ -126,7 +125,7 @@ InstallGlobalFunction(LCMSeries, function(group)
     od;  
     
     if next_lc <> group then 
-        Display("Group not LCM nilpotent");
+        Error("Group not LCM nilpotent");
         return [];
     else
         return lc_list;

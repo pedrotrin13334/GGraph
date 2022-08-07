@@ -38,7 +38,7 @@ InstallGlobalFunction(PowerGraph, function(group)
       power_graph := rec(group:=group, graph := graph);
    else 
       power_graph := 0; 
-      Display("Input was not a group");
+      Error("Input was not a group");
    fi;
 	
    return power_graph;
@@ -84,7 +84,7 @@ InstallGlobalFunction(EnhancedPowerGraph, function(group)
       enh_power_graph := rec(group:=group, graph := graph);
    else 
       enh_power_graph := 0; 
-      Display("Input was not a group");
+      Error("Input was not a group");
    fi;
 	
    return enh_power_graph;

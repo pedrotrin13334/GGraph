@@ -97,3 +97,149 @@ InstallGlobalFunction(IsChordalGraph, function(graph)
     fi;
     end
 );
+
+InstallGlobalFunction(GraphFromAdjList, function(adj_list)
+    local graph;
+    
+    if IsRecord(adj_list) then
+        if IsBound(adj_list.vert_set) then
+            
+            graph := Graph(Group(()), [1..Size(adj_list.adj)], OnPoints,
+                       function(x,y)       
+                           if (adj_list.vert_set[y] in adj_list.adj[x])=true then
+                               return true;
+                           else
+                               return false;
+                           fi;
+                        end, true);
+            return graph;
+        fi;
+        
+    elif IsList(adj_list)=true then
+        
+        graph := Graph(Group(()), [1..Size(adj_list)], OnPoints,
+                       function(x,y)       
+                           if (y in adj_list[x])=true then
+                               return true;
+                           else
+                               return false;
+                           fi;
+                        end, true);
+        return graph;
+    else 
+        Error("Input was not an adjacency list");
+        return fail;
+    fi;
+    end
+);
+
+InstallGlobalFunction(GraphProductGeneric, function(graph1, graph2, condition)
+    
+    local vert_g1, vert_g2, names_g1, names_g2, new_vertex_set,
+    new_vertex_names, adj_list, i, new_graph, vert1,vert2;
+    
+    if (IsGraph(graph1) and IsGraph(graph2)) then
+        
+        vert_g1 := Vertices(graph1);
+        vert_g2 := Vertices(graph2);
+        
+        names_g1 := VertexNames(graph1);
+        names_g2 := VertexNames(graph2);
+        
+        new_vertex_set := Cartesian(vert_g1, vert_g2);
+        new_vertex_names := Cartesian(names_g1, names_g2);
+        
+        adj_list := [];
+        i := 0; 
+        for vert1 in new_vertex_set do
+            i := i + 1;
+            Add(adj_list,[]);
+            for vert2 in new_vertex_set do
+                if (condition(vert1 , vert2, graph1, graph2) = true) then
+                    Add(adj_list[i], vert2);
+                fi;
+            od;
+        od;
+        
+        adj_list := rec(adj:= adj_list, vert_set := new_vertex_set);
+    
+        new_graph := GraphFromAdjList(adj_list);
+        AssignVertexNames(new_graph, new_vertex_names);
+        
+        return new_graph;
+    else
+        Error("Input was not two graphs");
+        return fail;
+    fi;
+    
+    end
+);
+
+InstallGlobalFunction(GraphCartesianProduct, function(graph1, graph2)
+    local condition, new_graph; 
+    # The condition for cartesian product adjacency
+    condition := function(vert1, vert2, graph1, graph2)
+        local cond_value;
+        cond_value := ((vert1[1] = vert2[1]) and
+                        (vert1[2] in Adjacency(graph2, vert2[2]))) or
+                        ((vert1[1] in Adjacency(graph1, vert2[1])) and
+                        vert1[2] = vert2[2]);
+        return cond_value;
+    end;
+
+    new_graph := GraphProductGeneric(graph1, graph2, condition);;
+    return new_graph;
+end
+);
+
+InstallGlobalFunction(GraphCategoricalProduct, function(graph1, graph2)
+    local condition, new_graph; 
+    # The condition for categorical product adjacency
+    condition := function(vert1, vert2, graph1, graph2)
+        local cond_value;
+        cond_value := ((vert1[1] in Adjacency(graph1, vert2[1]) and
+                        (vert1[2] in Adjacency(graph2, vert2[2])))); 
+        
+        return cond_value;
+    end;
+
+    new_graph := GraphProductGeneric(graph1, graph2, condition);;
+    return new_graph;
+end
+);
+
+InstallGlobalFunction(GraphLexProduct, function(graph1, graph2)
+    local condition, new_graph; 
+    # The condition for Lexical product adjacency
+    condition := function(vert1, vert2, graph1, graph2)
+        local cond_value;
+        cond_value :=   (vert1[1] in Adjacency(graph1, vert2[1]))  or
+                        ((vert1[2] = vert2[2]) and
+                        (vert1[2] in Adjacency(graph2, vert2[2])));
+        
+        return cond_value;
+    end;
+
+    new_graph := GraphProductGeneric(graph1, graph2, condition);;
+    return new_graph;
+end
+);
+
+InstallGlobalFunction(GraphStrongProduct, function(graph1, graph2)
+    local condition, new_graph; 
+    # The condition for strong product adjacency
+    condition := function(vert1, vert2, graph1, graph2)
+        local cond_value;
+        cond_value := ((vert1[1] = vert2[1]) and
+                        (vert1[2] in Adjacency(graph2, vert2[2]))) or
+                        ((vert1[1] in Adjacency(graph1, vert2[1])) and
+                        vert1[2] = vert2[2]) or
+                        ((vert1[1] in Adjacency(graph1, vert2[1])) and
+                        (vert1[2] in Adjacency(graph2, vert2[2])));
+        return cond_value;
+    end;
+
+    new_graph := GraphProductGeneric(graph1, graph2, condition);;
+    return new_graph;
+end
+);

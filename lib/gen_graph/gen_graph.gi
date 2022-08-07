@@ -41,7 +41,7 @@ InstallGlobalFunction(GenGraph, function(group)
       gen_graph := rec(group:=group, graph := graph);
    else 
       gen_graph := 0; 
-      Display("Input was not a group");
+      Error("Input was not a group");
       return fail; 
    fi;
 	
@@ -64,7 +64,7 @@ InstallGlobalFunction(NonGenGraph, function(group)
         ngen_graph := ComplementGraph(gen_graph.graph);    
     else
         ngen_graph := 0; 
-        Display("Input was not a group");
+        Error("Input was not a group");
         return fail; 
     fi; 
 

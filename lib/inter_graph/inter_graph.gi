@@ -48,7 +48,7 @@ InstallGlobalFunction(IntersectionGraph, function(group)
       intersect_graph := rec(group:=group, graph := graph);
    else 
       intersect_graph := 0; 
-      Display("Input was not a group");
+      Error("Input was not a group");
       return fail; 
    fi;
     
