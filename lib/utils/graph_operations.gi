@@ -105,13 +105,9 @@ InstallGlobalFunction(GraphFromAdjList, function(adj_list)
         if IsBound(adj_list.vert_set) then
             
             graph := Graph(Group(()), [1..Size(adj_list.adj)], OnPoints,
-                       function(x,y)       
-                           if (adj_list.vert_set[y] in adj_list.adj[x])=true then
-                               return true;
-                           else
-                               return false;
-                           fi;
-                        end, true);
+                       function(x,y) 
+                           return (adj_list.vert_set[y] in adj_list.adj[x]); 
+                       end, true);
             return graph;
         fi;
         
@@ -119,12 +115,8 @@ InstallGlobalFunction(GraphFromAdjList, function(adj_list)
         
         graph := Graph(Group(()), [1..Size(adj_list)], OnPoints,
                        function(x,y)       
-                           if (y in adj_list[x])=true then
-                               return true;
-                           else
-                               return false;
-                           fi;
-                        end, true);
+                           return (y in adj_list[x]);
+                       end, true);
         return graph;
     else 
         Error("Input was not an adjacency list");

@@ -90,7 +90,7 @@ InstallGlobalFunction(DeepCommGraph, function(group)
 
 #############################################################################
 ##
-#F  MaxAbelianSubgroup( <Group> ) . . . . . . . . . . . . . . . . . .  
+#F  MaxAbelianSubgroup( <CommGraph> ) . . . . . . . . . . . . . . . . . .  
 ##  . . . .  Finds a maximum abelian subgroup of a group G
 ##
 InstallGlobalFunction(MaxAbelianSubgroup, function(comm_graph)

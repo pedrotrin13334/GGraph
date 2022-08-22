@@ -68,12 +68,12 @@ DeclareGlobalFunction("CommDegree");
 
 #############################################################################
 ##
-#F  MaxAbelianSubgroup( <Group> ) . . . . . . . . . . . . . . . . . .  
+#F  MaxAbelianSubgroup( <CommGraph> ) . . . . . . . . . . . . . . . . . .  
 ##  . . . .  Finds a maximum abelian subgroup of a group G
 ##
 ##  <#GAPDoc Label="MaxAbelianSubgroup">
 ##  <ManSection>
-##  <Func Name="MaxAbelianSubgroup" Arg="group"/>
+##  <Func Name="MaxAbelianSubgroup" Arg="commgraph"/>
 ##
 ##  <Description>
 ##  This function receives a <A>group</A> as an input then utilizes the
