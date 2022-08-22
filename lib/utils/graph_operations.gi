@@ -66,36 +66,37 @@ InstallGlobalFunction(LexBFS, function(graph)
 );
 
 InstallGlobalFunction(IsChordalGraph, function(graph)
-    local lex_order, vertex, vert_names,
-          pos_vert, new_graph, adj_graph;
-
+    local lex_order,new_graph, adj_v, test_graph, idx, removed_verts;
+    
     if IsGraph(graph) = false then
         return fail;
     elif Girth(graph) = -1 then
         return true;
     else 
-        lex_order := LexBFS(graph);
-        lex_order := Reversed(lex_order); 
-        #Remove(lex_order,1);
-        new_graph := graph;
-        pos_vert := lex_order;
- 
-        while Size(lex_order)>2 do
-            adj_graph := InducedSubgraph(new_graph,
-                             Adjacency(new_graph, pos_vert[1]));
-            if IsCompleteGraph(adj_graph)=false then
+        lex_order:= LexBFS(graph);
+
+        # Takes the LexBFS order in reverse 
+        # remove one vertex at a time in order
+        # then tests if neighborhood induces a clique
+        lex_order := Reversed(lex_order);
+        removed_verts := [];
+        
+        for idx in [1..OrderGraph(graph)-1] do
+            
+            adj_v := Adjacency(graph, lex_order[idx]);
+            SubtractSet(adj_v, removed_verts);
+            Add(removed_verts, lex_order[idx]);
+            
+            test_graph := InducedSubgraph(graph, adj_v);;
+
+            if IsCompleteGraph(test_graph)=false then
                 return false;
             fi;
-            # Make a new graph without vertex in order
-            Remove(lex_order,1); 
-            vert_names := List(lex_order, x->VertexName(graph,x));
-            pos_vert := List(vert_names, x-> 
-                            Position(VertexNames(new_graph), x)); 
-            new_graph := InducedSubgraph(new_graph, pos_vert); 
+
         od;
         return true;
     fi;
-    end
+end 
 );
 
 InstallGlobalFunction(GraphFromAdjList, function(adj_list)
