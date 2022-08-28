@@ -24,7 +24,7 @@ InstallGlobalFunction(IntersectionGraph, function(group)
             # subgroups is not trivial.
             set1 := Elements(h1);
             set2 := Elements(h2); 
-            if  (IntersectionSet(set1,set2) <> [()]) then
+            if  (IntersectionSet(set1,set2) <> [Identity(group)]) then
                A_mx[i][j] := 1;
             else 
                A_mx[i][j] := 0;

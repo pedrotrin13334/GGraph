@@ -15,6 +15,21 @@ DeclareGlobalFunction("PowerGraph");
 
 #############################################################################
 ##
+#F  DirectedPowerGraph( <Group> ) . . . . . . . . . . . . . . . . . . . .  
+##  . . . . Implements the Power Graph of a given group
+##
+##  <#GAPDoc Label="DirectedPowerGraph">
+##  <ManSection>
+##  <Func Name="DirectedPowerGraph" Arg="group"/>
+##
+##  <Description>
+##  </Description>
+##  </ManSection>
+##  <#/GAPDoc>
+DeclareGlobalFunction("DirectedPowerGraph");
+
+#############################################################################
+##
 #F  EnhancedPowerGraph( <Group> ) . . . . . . . . . . . . . . . . . . . .  
 ##  . . . . Implements the Enhanced Power Graph of a given group
 ##
