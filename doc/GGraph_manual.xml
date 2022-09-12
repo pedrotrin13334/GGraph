@@ -113,14 +113,14 @@
             <#Include label="GraphFromAdjList"> 
             <#Include Label="LexBFS">
             <#Include Label="IsChordalGraph">
-            <Section>
+	 <!-- <Subsection>
                 <Heading> Graph Products </Heading> 
                     <#Include Label="GraphProductGeneric">
                     <#Include Label="GraphCartesianProduct">
                     <#Include Label="GraphCategoricalProduct">
                     <#Include Label="GraphLexProduct">
                     <#Include Label="GraphStrongProduct">
-            </Section> 
+	 </Subsection> -->
         </Section>
     </Chapter> 
 </Body>

@@ -52,15 +52,16 @@ DeclareGlobalFunction("IsChordalGraph");
 ##
 ##  <#GAPDoc Label="GraphProductGeneric">
 ##  <ManSection>
-##  <Func Name="GraphProductGeneric" Arg=["graph1","graph2", "condition"]/>
+##  <Func Name="GraphProductGeneric" Arg="graph1"/>
+##  <Description>
 ##     This is a generic framework function for a graph product, where 
 ##     it returns a graph where the vertex set is the cartesian product 
 ##     <Math>G \times H</Math> and the connections follow the condition 
 ##     defined by the input condition function.  
-##  <Description>
 ##  </Description>
 ##  </ManSection>
 ##  <#/GAPDoc>
+##  TODO put this input = ["graph1","graph2", "condition"]
 DeclareGlobalFunction("GraphProductGeneric");
 
 #############################################################################
@@ -124,7 +125,64 @@ DeclareGlobalFunction("GraphStrongProduct");
 ## this section of the code make available certain necessary graphs methods
 ##
 ## code author: M. Laura da Silva
+
+#############################################################################
+##
+#F  GraphTwins( <Graph> ) . . . . . . . . . . . . . . . . . . . .  
+##
+##  <#GAPDoc Label="GraphTwins">
+##  <ManSection>
+##  <Func Name="GraphTwins" Arg="graph"/>
+##
+##  <Description> We call two vertices of a graph <Math>\Gamma</Math> 
+##  twins if they have the same neighborhood, ignoring themselves. 
+##  A neighborhood of a vertice <Math>\v_i</Math> is defined as the set <Math>\N</Math> 
+##  of all the vertices <Math>\v_k</Math> that are connected to it.
+##  This function returns a list of lists containing a particion of the input 
+##  graph represented by the equivalence classes of twin vertices.
+##  </Description>
+##  </ManSection>
+##  <#/GAPDoc>
 DeclareGlobalFunction("GraphTwins"); 
+
+#############################################################################
+##
+#F  GraphStrongProduct( <Graph> ) . . . . . . . . . . . . . . . . . . . .  
+##
+##  <#GAPDoc Label="GraphStrongProduct">
+##  <ManSection>
+##  <Func Name="GraphStrongProduct" Arg="graph"/>
+##
+##  <Description>
+##  </Description>
+##  </ManSection>
+##  <#/GAPDoc>
 DeclareGlobalFunction("IsTwinFree"); 
+
+#############################################################################
+##
+#F  GraphStrongProduct( <Graph> ) . . . . . . . . . . . . . . . . . . . .  
+##
+##  <#GAPDoc Label="GraphStrongProduct">
+##  <ManSection>
+##  <Func Name="GraphStrongProduct" Arg="graph"/>
+##
+##  <Description>
+##  </Description>
+##  </ManSection>
+##  <#/GAPDoc>
 DeclareGlobalFunction("TwinReduction"); 
+
+#############################################################################
+##
+#F  GraphStrongProduct( <Graph> ) . . . . . . . . . . . . . . . . . . . .  
+##
+##  <#GAPDoc Label="GraphStrongProduct">
+##  <ManSection>
+##  <Func Name="GraphStrongProduct" Arg="graph"/>
+##
+##  <Description>
+##  </Description>
+##  </ManSection>
+##  <#/GAPDoc>
 DeclareGlobalFunction("CokernelGraph"); 

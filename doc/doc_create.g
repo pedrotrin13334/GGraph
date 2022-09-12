@@ -1,4 +1,4 @@
-path_in := Directory("/home/nameless/.gap/pkg/GGraph/doc/");;
+path_in := Directory("~/.gap/pkg/GGraph/doc/");;
 SetGAPDocHTMLStyle("toggle");;
 
 main := "GGraph_manual.xml";;
@@ -19,7 +19,7 @@ doc := ComposedDocument("GAPDoc", path_in, main, files, true);;
 r := ParseTreeXMLString(doc[1], doc[2]);;
 CheckAndCleanGapDocTree(r);
 
-path_out := Directory("/home/nameless/.gap/pkg/GGraph/doc/doc_outputs/");;
+path_out := Directory("~/.gap/pkg/GGraph/doc/doc_outputs/");;
 
 # Creates a version with mathjax and another without
 h := GAPDoc2HTML(r, path_out, "MathJax");;
